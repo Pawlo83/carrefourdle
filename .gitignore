@@ -1,0 +1,38 @@
+### Scraped data ###
+database/CarrefourdleScraper/images
+database/CarrefourdleScraper/*.json
+
+### Secrets & Configuration ###
+.env
+.env.local
+.env.*.local
+application.properties
+application-*.properties
+!application-common.properties
+
+### Java & Maven ###
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+.mvn/wrapper/maven-wrapper.properties
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode/
