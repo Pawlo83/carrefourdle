@@ -1,4 +1,4 @@
-package com.example.CarrefourdleBackend.model;
+package top.skiba.CarrefourdleBackend.model;
 
 public class Guess {
     public String username;

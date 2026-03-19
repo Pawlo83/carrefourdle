@@ -1,8 +1,8 @@
-package com.example.CarrefourdleBackend.controller;
+package top.skiba.CarrefourdleBackend.controller;
 
-import com.example.CarrefourdleBackend.model.GameProduct;
-import com.example.CarrefourdleBackend.model.Guess;
-import com.example.CarrefourdleBackend.service.ProductService;
+import top.skiba.CarrefourdleBackend.model.GameProduct;
+import top.skiba.CarrefourdleBackend.model.Guess;
+import top.skiba.CarrefourdleBackend.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

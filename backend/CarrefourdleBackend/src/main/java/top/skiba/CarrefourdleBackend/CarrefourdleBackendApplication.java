@@ -1,4 +1,4 @@
-package com.example.CarrefourdleBackend;
+package top.skiba.CarrefourdleBackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

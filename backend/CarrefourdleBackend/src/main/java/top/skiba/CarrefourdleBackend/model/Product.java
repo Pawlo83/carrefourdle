@@ -1,4 +1,4 @@
-package com.example.CarrefourdleBackend.model;
+package top.skiba.CarrefourdleBackend.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

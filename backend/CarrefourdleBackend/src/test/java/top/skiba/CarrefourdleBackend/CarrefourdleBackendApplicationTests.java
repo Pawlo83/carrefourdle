@@ -1,4 +1,4 @@
-package com.example.CarrefourdleBackend;
+package top.skiba.CarrefourdleBackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

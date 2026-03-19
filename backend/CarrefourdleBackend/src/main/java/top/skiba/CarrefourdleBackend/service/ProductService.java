@@ -1,8 +1,7 @@
-package com.example.CarrefourdleBackend.service;
+package top.skiba.CarrefourdleBackend.service;
 
-import com.example.CarrefourdleBackend.model.GameProduct;
-import com.example.CarrefourdleBackend.model.Guess;
-import com.example.CarrefourdleBackend.model.Product;
+import top.skiba.CarrefourdleBackend.model.Guess;
+import top.skiba.CarrefourdleBackend.model.Product;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

@@ -8,27 +8,11 @@
 		<version>4.0.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>top.skiba</groupId>
 	<artifactId>CarrefourdleBackend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>CarrefourdleBackend</name>
-	<description>Demo project for Spring Boot</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
-	<properties>
-		<java.version>21</java.version>
-	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -47,6 +31,10 @@
 			<version>2.17.0</version>
 		</dependency>
 	</dependencies>
+
+	<properties>
+		<java.version>21</java.version>
+	</properties>
 
 	<build>
 		<plugins>
