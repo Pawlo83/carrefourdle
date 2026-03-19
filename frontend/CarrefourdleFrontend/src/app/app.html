@@ -1,0 +1,15 @@
+<div class="min-h-screen min-w-screen items-center flex flex-col">
+  <main class="flex-grow flex flex-col items-center max-w-lg">
+    <app-item-container [product]="product"></app-item-container>
+
+    <app-answers-container [attempts]="attempts"></app-answers-container>
+    
+    <app-input-container (guessSubmitted)="handleGuess($event)" [disabled]="isGameOver"></app-input-container>
+  </main>
+
+  <footer class="py-8 text-center">
+    <p class="text-xs text-slate-400 font-medium">
+      SKIBA.TOP © 2026 • DATA FROM CARREFOUR.PL • CARREFOURDLE v1.0
+    </p>
+  </footer> 
+</div>

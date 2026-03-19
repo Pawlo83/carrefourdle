@@ -1,0 +1,12 @@
+.card-container {
+    background: white;
+    color: #1e293b;
+}
+
+.image-box {
+    background: white;
+}
+
+.image-box img {
+    max-width: 350px;
+}

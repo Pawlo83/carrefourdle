@@ -1,0 +1,26 @@
+.price-pill {
+    background-color: #f8fafc;
+    color: #94a3b8;
+}
+
+.price-pill.filled {
+    color: #444444;
+    background-color: white;
+}
+
+.status-indicator {
+    width: 40px;
+    background: #f8fafc;
+}
+
+.status-neg-2 { background-color: #1e3a8a !important; }
+.status-neg-1 { background-color: #60a5fa !important; }
+.status-0 { background-color: #22c55e !important; }
+.status-1 { background-color: #fb923c !important; }
+.status-2 { background-color: #ef4444 !important; }
+
+.arrow-icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+}

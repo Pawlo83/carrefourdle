@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Carrefourdle</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="logo.svg" type="image/x-icon">
+  
+</head>
+<body>
+  <div class="app-wrapper">
+    <script>
+      (function() {
+        try {
+          const storedTheme = localStorage.getItem('theme');
+          const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (storedTheme === 'dark' || (!storedTheme && systemTheme)) {
+            document.body.classList.add('dark-mode');
+          }
+        } catch (e) {
+          console.error('Theme script failed', e);
+        }
+      })();
+    </script>
+    <app-root></app-root>
+  </div>
+</body>
+</html>

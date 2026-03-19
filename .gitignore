@@ -9,6 +9,7 @@ database/CarrefourdleScraper/*.json
 application.properties
 application-*.properties
 !application-common.properties
+.editorconfig
 
 ### Java & Maven ###
 target/
@@ -17,6 +18,12 @@ target/
 *.war
 *.ear
 *.log
+
+### Angular ###
+frontend/CarrefourdleFrontend/.angular
+frontend/CarrefourdleFrontend/node_modules
+frontend/CarrefourdleFrontend/dist
+frontend/CarrefourdleFrontend/tmp
 
 ### IntelliJ IDEA ###
 .idea/
