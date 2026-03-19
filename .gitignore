@@ -10,6 +10,7 @@ application.properties
 application-*.properties
 !application-common.properties
 .editorconfig
+.notes
 
 ### Java & Maven ###
 target/
@@ -25,13 +26,23 @@ frontend/CarrefourdleFrontend/node_modules
 frontend/CarrefourdleFrontend/dist
 frontend/CarrefourdleFrontend/tmp
 
+### Spring ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
 ### IntelliJ IDEA ###
 .idea/
 *.iws
 *.iml
 *.ipr
 out/
-.mvn/wrapper/maven-wrapper.properties
+**/.mvn/wrapper/maven-wrapper.properties
+**/.mvn/wrapper/maven-wrapper.jar
 
 ### NetBeans ###
 /nbproject/private/
