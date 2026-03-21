@@ -5,6 +5,7 @@ import { ApiService, Product } from './core/api';
 import { ItemContainerComponent } from './components/item-container/item-container.component';
 import { AnswersContainerComponent } from './components/answers-container/answers-container.component';
 import { InputContainerComponent } from './components/input-container/input-container.component';
+import { HeaderComponent } from './components/header/header.component';
 
 interface Attempt {
     priceGuess: string | null;
@@ -15,7 +16,7 @@ interface Attempt {
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, ItemContainerComponent, AnswersContainerComponent, InputContainerComponent],
+    imports: [CommonModule, ItemContainerComponent, AnswersContainerComponent, InputContainerComponent, HeaderComponent],
     templateUrl: './app.html',
     styleUrl: './app.css'
 })
@@ -24,6 +25,7 @@ export class App implements OnInit {
     
     product = signal<Product | null>(null);
     currentGuessIndex = 0;
+    gameMode = signal<'daily' | 'random'>('daily');
     
     attempts: Attempt[] = Array(7).fill(null).map(() => ({
         priceGuess: null,
@@ -31,19 +33,32 @@ export class App implements OnInit {
     }));
 
     ngOnInit() {
-        this.apiService.getDailyProduct().subscribe({
-            next: (data) => {
-                console.log('Produkt załadowany:', data);
-                this.product.set(data);
-            },
-            error: (err) => console.error('Błąd pobierania produktu:', err)
-        });
+        this.loadGame();
+    }
+
+    loadGame() {
+        this.currentGuessIndex = 0;
+        this.attempts = Array(7).fill(null).map(() => ({ 
+            priceGuess: null, 
+            priceExact: null, 
+            result: null 
+        }));
+
+        const fetch = this.gameMode() === 'daily' ? this.apiService.getDailyProduct() : this.apiService.getRandomProduct();
+        fetch.subscribe(p => this.product.set(p));
     }
 
     get isGameOver(): boolean {
         const hasWon = this.attempts.some(a => a.result === 0);
         const noMoreTries = this.currentGuessIndex >= 7;
         return hasWon || noMoreTries;
+    }
+
+    switchMode(newMode: 'daily' | 'random') {
+        if (this.gameMode() === newMode) return;
+        
+        this.gameMode.set(newMode);
+        this.loadGame();
     }
 
     handleGuess(priceValue: string) {

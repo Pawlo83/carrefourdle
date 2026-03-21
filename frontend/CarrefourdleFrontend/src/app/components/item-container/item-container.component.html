@@ -1,13 +1,13 @@
-<div class="card-container min-w-lg m-3 rounded-xl text-lg font-semibold shadow-md" *ngIf="product() as p">
+<div class="card-container min-w-lg m-2 rounded-xl text-lg font-semibold shadow-md" *ngIf="product() as p">
     <div class="image-box relative p-6 pb-0 rounded-xl flex items-center justify-center">
         <img [src]="p.image_url" [alt]="p.name" class="w-full h-full object-contain rounded-xl">
     </div>
     
     <div class="image-box relative p-6 pt-4 rounded-xl flex items-center justify-center">
-        <h2 class="m-0">{{ p.name }}</h2>
+        <h2 class="m-0 text-center">{{ p.name }}</h2>
     </div>
 </div>
 
-<div class="card-container flex items-center justify-center h-64 min-w-lg" *ngIf="!product()">
+<div class="card-container flex m-2 rounded-xl items-center justify-center h-64 min-w-lg" *ngIf="!product()">
     <p class="animate-pulse">Ładowanie produktu...</p>
 </div>

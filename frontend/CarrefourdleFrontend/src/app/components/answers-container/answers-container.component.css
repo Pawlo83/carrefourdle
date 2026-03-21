@@ -5,7 +5,7 @@
 
 .price-pill.filled {
     color: #444444;
-    background-color: white;
+    background-color: #f8fafc;
 }
 
 .status-indicator {
@@ -16,8 +16,8 @@
 .status-neg-2 { background-color: #1e3a8a !important; }
 .status-neg-1 { background-color: #60a5fa !important; }
 .status-0 { background-color: #22c55e !important; }
-.status-1 { background-color: #fb923c !important; }
-.status-2 { background-color: #ef4444 !important; }
+.status-1 { background-color: #e04343 !important; }
+.status-2 { background-color: #831717 !important; }
 
 .arrow-icon {
     width: 24px;

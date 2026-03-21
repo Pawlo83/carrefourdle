@@ -15,5 +15,5 @@ export class InputContainerComponent {
     submit(value: string) {
         if (!value || this.disabled) return;
         this.guessSubmitted.emit(value);
-  }
+    }
 }
