@@ -1,6 +1,6 @@
 import { Component, Input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Product } from '../../core/api';
+import { Product } from '../../core/modals';
 
 @Component({
   selector: 'app-item-container',
@@ -11,4 +11,5 @@ import { Product } from '../../core/api';
 })
 export class ItemContainerComponent {
     @Input() product = signal<Product | null>(null);
+    @Input() isProductLoading = signal(true);
 }

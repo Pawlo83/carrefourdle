@@ -1,11 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Attempt {
-    priceGuess: string | null;
-    priceExact?: string | null;
-    result: number | null;
-}
+import { Attempt } from '../../core/modals';
 
 @Component({
     selector: 'app-answers-container',

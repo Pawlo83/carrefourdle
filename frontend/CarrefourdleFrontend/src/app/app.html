@@ -1,13 +1,75 @@
 <div class="min-h-screen min-w-screen items-center flex flex-col">
-    <app-header [currentMode]="gameMode()" (modeChanged)="switchMode($event)"></app-header>
+    <app-header [currentMode]="gameMode()" (modeChanged)="switchMode($event)" (openHelp)="isHelpOpen.set(true)" (openStats)="isStatsOpen.set(true)" class="items-center w-lg"></app-header>
 
-    <main class="flex-grow flex flex-col items-center max-w-lg">
-        <app-item-container [product]="product"></app-item-container>
+    <main class="flex-grow flex flex-col items-center w-lg">
+        <app-item-container [product]="product" [isProductLoading]="isProductLoading" class="block w-full"></app-item-container>
 
-        <app-answers-container [attempts]="attempts"></app-answers-container>
+        <app-answers-container [attempts]="attempts" class="block w-full"></app-answers-container>
     
-        <app-input-container (guessSubmitted)="handleGuess($event)" [disabled]="isGameOver"></app-input-container>
+        <app-input-container (guessSubmitted)="handleGuess($event)" [disabled]="gameState()!=='IN_PROGRESS'" class="block w-full"></app-input-container>
     </main>
+
+    <app-modal *ngIf="isHelpOpen()" title="Zasady gry" (close)="isHelpOpen.set(false)">
+        <div class="text-slate-600 space-y-5 text-sm">
+            <div class="space-y-2">
+                <p class="font-semibold text-base text-slate-800">Odgadnij cenę w 7 próbach cenę produktu w Carrefour</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li>Każda próba musi być prawidłową liczbą.</li>
+                    <li>Błędne strzały zawierały będą wskazówki, pokazując, czy prawdziwa cena jest wyższa, czy niższa.</li>
+                    <li>Jaśniejszy odcień wskazuje, że jesteś w zakresie 25% ceny produktu.</li>
+                    <li>Możesz pomylić się o 9 groszy.</li>
+                </ul>
+            </div>
+
+            <div class="space-y-2">
+                <p class="font-semibold text-base text-slate-800">Przykłady</p>
+                
+                <div class="bg-slate-300 px-3 py-1 rounded-xl">
+                    <app-answers-container [attempts]="mockRulesAttempts"></app-answers-container>
+                </div>
+                <div class="text-xs space-y-2 bg-slate-50 p-1">
+                    <p><span class="font-bold text-slate-700">50.00 zł</span> - cena jest dużo za wysoka</p>
+                    <p><span class="font-bold text-slate-700">20.00 zł</span> - cena jest trochę za wysoka</p>
+                    <p><span class="font-bold text-slate-700">15.00 zł</span> - cena jest trochę za niska</p>
+                    <p><span class="font-bold text-slate-700">1.00 zł</span> - cena jest dużo za niska</p>
+                    <p><span class="font-bold text-green-600">16.00 zł</span> - cena w zakresie błędu, wygrywasz</p>
+                </div>
+
+            </div>
+        </div>
+    </app-modal>
+
+    <app-modal *ngIf="isStatsOpen()" title="Statystyki" (close)="isStatsOpen.set(false)">
+        <div *ngIf="stats() as currentStats">
+            <div class="grid grid-cols-2 gap-4 text-center mb-6">
+                <div class="bg-slate-50 p-3 rounded-xl">
+                    <div class="text-3xl font-black text-red-600">{{ currentStats.currentStreak }}</div>
+                    <div class="text-xs text-slate-500 font-bold uppercase">Aktualny Streak</div>
+                </div>
+                
+                <div class="bg-slate-50 p-3 rounded-xl">
+                    <div class="text-3xl font-black text-slate-700">{{ currentStats.maxStreak }}</div>
+                    <div class="text-xs text-slate-500 font-bold uppercase">Max Streak</div>
+                </div>
+
+                <div class="bg-slate-50 p-3 rounded-xl">
+                    <div class="text-3xl font-black text-green-500">
+                    {{ currentStats.gamesPlayed ? ((currentStats.gamesWon / currentStats.gamesPlayed) * 100 | number:'1.0-0') : 0 }}%
+                    </div>
+                    <div class="text-xs text-slate-500 font-bold uppercase">Wygrane</div>
+                </div>
+
+                <div class="bg-slate-50 p-3 rounded-xl">
+                    <div class="text-3xl font-black text-blue-600">{{ currentStats.avgGuesses | number:'1.1-1' }}</div>
+                    <div class="text-xs text-slate-500 font-bold uppercase">Śr. Prób</div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!stats()">
+            <div class="text-center text-slate-500 py-8 animate-pulse">Ładowanie statystyk...</div>
+        </div>
+    </app-modal>
 
     <footer class="py-4 text-center">
         <p class="text-xs text-slate-400 font-medium">

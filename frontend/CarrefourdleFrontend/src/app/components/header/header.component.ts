@@ -9,10 +9,12 @@ import { CommonModule } from '@angular/common';
     styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-    @Output() modeChanged = new EventEmitter<'daily' | 'random'>();
-    @Input() currentMode: 'daily' | 'random' = 'daily';
+    @Output() modeChanged = new EventEmitter<'DAILY' | 'RANDOM'>();
+    @Output() openHelp = new EventEmitter<void>();
+    @Output() openStats = new EventEmitter<void>();
+    @Input() currentMode: 'DAILY' | 'RANDOM' = 'DAILY';
 
-    setMode(mode: 'daily' | 'random') {
+    setMode(mode: 'DAILY' | 'RANDOM') {
         this.modeChanged.emit(mode);
     }
 }

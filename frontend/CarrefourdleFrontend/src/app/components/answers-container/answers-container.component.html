@@ -1,4 +1,4 @@
-<div class="answers-container min-w-lg m-2 flex flex-col gap-2">
+<div class="answers-container w-full my-2 flex flex-col gap-2">
     <div class="answer-row flex gap-2 w-full h-10" *ngFor="let attempt of attempts">
         <div class="price-pill z-10 text-md font-bold overflow-hidden whitespace-nowrap flex-1 rounded-xl shadow-md flex items-center justify-center" 
             [class.filled]="attempt.priceGuess !== null">
@@ -17,7 +17,7 @@
             </span>
         </div>
 
-        <div class="status-indicator rounded-xl flex items-center justify-center shadow-md" [ngClass]="getStatusClass(attempt.result)">          
+        <div class="status-indicator rounded-xl flex items-center justify-center shadow-md" [ngClass]="getStatusClass(attempt.result)">
             <svg *ngIf="attempt.result !== null && attempt.result > 0" class="arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
